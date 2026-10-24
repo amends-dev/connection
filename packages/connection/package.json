@@ -1,0 +1,51 @@
+{
+  "name": "@amends-dev/connection",
+  "version": "0.0.0",
+  "description": "What a host connects to: integrations, the harnesses, models, sandboxes, tools, and channels each gives a connection, and the model catalog from models.dev.",
+  "keywords": [
+    "agent",
+    "effect",
+    "integration",
+    "mcp",
+    "models"
+  ],
+  "homepage": "https://github.com/amends-dev/connection/tree/main/packages/connection#readme",
+  "bugs": {
+    "url": "https://github.com/amends-dev/connection/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amends-dev/connection.git",
+    "directory": "packages/connection"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts",
+    "./internal/*": null
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.tools.json",
+    "update-models": "bun run scripts/update-models.ts",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@amends-dev/channel": "catalog:",
+    "@amends-dev/harness": "catalog:",
+    "@amends-dev/sandbox": "catalog:",
+    "@amends-dev/toolkit": "catalog:"
+  },
+  "devDependencies": {
+    "@effect/vitest": "catalog:",
+    "effect": "catalog:"
+  },
+  "peerDependencies": {
+    "effect": "catalog:"
+  }
+}
